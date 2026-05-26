@@ -1,0 +1,165 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>รายงานงบประมาณสยาม</title><style>
+:root{
+  --bg:#07111f;--panel:#0f1d33;--panel2:#122640;--text:#eaf2ff;--muted:#9fb3cc;
+  --line:rgba(255,255,255,.12);--ok:#36d399;--bad:#fb7185;--warn:#fbbf24;--blue:#60a5fa;
+  --shadow:0 20px 70px rgba(0,0,0,.35);--radius:24px;
+}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#16365f 0,#07111f 42%,#050913 100%);color:var(--text);min-height:100vh}.wrap{width:min(1180px,calc(100% - 28px));margin:auto;padding:22px 0 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#60a5fa,#36d399);box-shadow:0 12px 36px rgba(96,165,250,.25)}h1{margin:0;font-size:clamp(22px,4vw,34px)}.sub{color:var(--muted);font-size:14px;margin-top:4px}.btn{border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--text);padding:10px 14px;border-radius:14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:700}.btn:hover{background:rgba(255,255,255,.12)}.btn.primary{background:linear-gradient(135deg,#2563eb,#059669);border:0}.btn.danger{background:rgba(251,113,133,.14);border-color:rgba(251,113,133,.35)}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}.balance{position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}.balance:before{content:"";position:absolute;inset:-80px -80px auto auto;width:260px;height:260px;border-radius:50%;background:rgba(54,211,153,.18);filter:blur(8px)}.label{color:var(--muted);font-weight:700}.amount{font-size:clamp(48px,9vw,86px);font-weight:900;letter-spacing:-.06em;line-height:1;margin:20px 0 10px}.amount.ok{color:var(--ok)}.amount.bad{color:var(--bad)}.minirow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.mini{background:rgba(0,0,0,.18);border:1px solid var(--line);border-radius:18px;padding:14px}.mini b{display:block;font-size:24px;margin-top:6px}.searchbar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}.input,.select{background:#09182b;border:1px solid var(--line);color:var(--text);border-radius:14px;padding:11px 12px;outline:none}.input{flex:1;min-width:210px}.tablewrap{overflow:auto;border-radius:18px;border:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:850px;background:rgba(0,0,0,.13)}th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{position:sticky;top:0;background:#10223a;color:#cfe1ff;font-size:13px}tr:hover td{background:rgba(255,255,255,.04)}.num{text-align:right;font-variant-numeric:tabular-nums}.pill{border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;display:inline-block}.pill.in{background:rgba(54,211,153,.15);color:#8ff2c5}.pill.out{background:rgba(251,113,133,.15);color:#ffb5c0}.muted{color:var(--muted)}.details{display:none;background:rgba(0,0,0,.22)}.details.open{display:table-row}.detailgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.cat{border:1px solid var(--line);border-radius:14px;padding:10px;background:rgba(255,255,255,.04)}.cat span{display:block;color:var(--muted);font-size:12px}.barbox{height:12px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin-top:14px}.bar{height:100%;background:linear-gradient(90deg,#60a5fa,#36d399);width:0%}.notice{border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.09);border-radius:18px;padding:14px;color:#ffe6a3;margin:14px 0}.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field label{display:block;color:var(--muted);font-size:13px;font-weight:800;margin-bottom:6px}.field input{width:100%;background:#08172a;border:1px solid var(--line);border-radius:14px;color:var(--text);padding:12px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.rowactions{display:flex;gap:6px}.small{font-size:12px;padding:7px 9px;border-radius:10px}.footer{color:var(--muted);font-size:12px;margin-top:16px}@media(max-width:860px){.grid{grid-template-columns:1fr}.minirow,.formgrid,.detailgrid{grid-template-columns:1fr 1fr}.top{align-items:flex-start;flex-direction:column}.amount{font-size:54px}}@media(max-width:520px){.minirow,.formgrid,.detailgrid{grid-template-columns:1fr}.wrap{width:min(100% - 18px,1180px)}.card{padding:15px}.btn{width:100%;justify-content:center}.searchbar{display:block}.input,.select{width:100%;margin-bottom:10px}}
+</style></head><body><div class="wrap"><div class="top"><div class="brand"><div class="logo"></div><div><h1>รายงานงบประมาณสยาม</h1><div class="sub">หน้าแสดงผลยอดคงเหลือ รายรับ รายจ่าย และรายละเอียดทุกรายการ</div></div></div><a class="btn primary" href="admin.html">เปิดหลังบ้าน</a></div><div class="grid"><section class="card balance"><div><div class="label">ยอดคงเหลือปัจจุบัน</div><div id="balance" class="amount ok">0 บาท</div><div class="muted" id="updated">ข้อมูลจะอัปเดตอัตโนมัติเมื่อแก้ในหลังบ้านบนเบราว์เซอร์เดียวกัน</div></div><div class="minirow"><div class="mini"><span class="muted">รายรับรวม</span><b id="income">0</b></div><div class="mini"><span class="muted">รายจ่ายรวม</span><b id="out">0</b></div><div class="mini"><span class="muted">จำนวนรายการ</span><b id="count">0</b></div></div></section><section class="card"><div class="label">สัดส่วนรายจ่ายตามหมวด</div><div id="cats"></div><div class="notice">กดที่แถวรายการด้านล่างเพื่อเปิด/ปิดรายละเอียดรายจ่ายแยกหมวด</div></section></div><section class="card" style="margin-top:18px"><div class="searchbar"><input id="q" class="input" placeholder="ค้นหาวันที่หรือรายการ"><select id="filter" class="select"><option value="all">ทั้งหมด</option><option value="income">มีรายรับ</option><option value="expense">มีรายจ่าย</option></select></div><div class="tablewrap"><table><thead><tr><th>วันที่</th><th>รายการ</th><th class="num">รายรับ</th><th class="num">รายจ่าย</th><th class="num">ยอดคงเหลือหลังรายการ</th><th>ดูรายละเอียด</th></tr></thead><tbody id="tbody"></tbody></table></div><div class="footer">ข้อมูลเก็บใน localStorage ของเบราว์เซอร์ ถ้าต้องใช้ร่วมหลายเครื่องควรต่อฐานข้อมูลจริง เช่น Firebase</div></section></div><script>
+const STORE_KEY = "siam_budget_records_v1";
+const SEED_DATA = [
+  {
+    "date": "2025-11-05",
+    "item": "งาน pim sandbock",
+    "income": 4000,
+    "mall": 0,
+    "market": 0,
+    "labor": 0,
+    "utility": 0,
+    "other": 0
+  },
+  {
+    "date": "2025-12-26",
+    "item": "จัดซื้ออุปกรณ์",
+    "income": 0,
+    "mall": 0,
+    "market": 265,
+    "labor": 0,
+    "utility": 0,
+    "other": 503
+  },
+  {
+    "date": "2026-01-05",
+    "item": "จััดซื้ออุปกรณ์/วัตถุดิบ",
+    "income": 0,
+    "mall": 2065,
+    "market": 87,
+    "labor": 0,
+    "utility": 0,
+    "other": 0
+  },
+  {
+    "date": "1969-01-28",
+    "item": "จัดซื้ื้อวัตถุดิบ",
+    "income": 0,
+    "mall": 0,
+    "market": 468,
+    "labor": 0,
+    "utility": 0,
+    "other": 0
+  },
+  {
+    "date": "2026-02-09",
+    "item": "ซื้อถุงซีล (ค่าวัสดุ/อุปกรณ์ )",
+    "income": 0,
+    "mall": 0,
+    "market": 0,
+    "labor": 0,
+    "utility": 0,
+    "other": 45
+  },
+  {
+    "date": "2026-02-12",
+    "item": "งบนำเสนอ (อื่นๆ)",
+    "income": 0,
+    "mall": 0,
+    "market": 0,
+    "labor": 0,
+    "utility": 0,
+    "other": 188
+  },
+  {
+    "date": "2026-02-21",
+    "item": "ซื้อฉลากสติกเกอร์ (อื่นๆ)",
+    "income": 0,
+    "mall": 170,
+    "market": 0,
+    "labor": 0,
+    "utility": 0,
+    "other": 0
+  },
+  {
+    "date": "2026-03-15",
+    "item": "งบขอทุน",
+    "income": 2000,
+    "mall": 0,
+    "market": 0,
+    "labor": 0,
+    "utility": 0,
+    "other": 0
+  }
+];
+function uid(){ return Math.random().toString(36).slice(2)+Date.now().toString(36); }
+function normalise(row){
+  return {
+    id: row.id || uid(),
+    date: row.date || new Date().toISOString().slice(0,10),
+    item: row.item || "",
+    income: Number(row.income)||0,
+    mall: Number(row.mall)||0,
+    market: Number(row.market)||0,
+    labor: Number(row.labor)||0,
+    utility: Number(row.utility)||0,
+    other: Number(row.other)||0
+  };
+}
+function loadRecords(){
+  const raw = localStorage.getItem(STORE_KEY);
+  if(!raw){ const seeded = SEED_DATA.map(normalise); saveRecords(seeded); return seeded; }
+  try{ return JSON.parse(raw).map(normalise); }catch(e){ return SEED_DATA.map(normalise); }
+}
+function saveRecords(rows){
+  localStorage.setItem(STORE_KEY, JSON.stringify(rows.map(normalise)));
+  localStorage.setItem(STORE_KEY+"_updated", new Date().toISOString());
+  if(window.BroadcastChannel){ new BroadcastChannel("siam_budget_channel").postMessage("updated"); }
+}
+function money(n){ return (Number(n)||0).toLocaleString("th-TH", {minimumFractionDigits:0, maximumFractionDigits:2}); }
+function expense(r){ return [r.mall,r.market,r.labor,r.utility,r.other].reduce((a,b)=>a+(Number(b)||0),0); }
+function totals(rows){
+  const income = rows.reduce((s,r)=>s+(Number(r.income)||0),0);
+  const out = rows.reduce((s,r)=>s+expense(r),0);
+  return {income, out, balance: income-out, count: rows.length};
+}
+function sortedRows(rows){ return [...rows].sort((a,b)=>(a.date||"").localeCompare(b.date||"")); }
+function dateText(s){
+  if(!s) return "-";
+  const d = new Date(s+"T00:00:00");
+  if(Number.isNaN(d.getTime())) return s;
+  return d.toLocaleDateString("th-TH", {year:"numeric", month:"short", day:"numeric"});
+}
+function categoryTotals(rows){
+  return {
+    mall: rows.reduce((s,r)=>s+(+r.mall||0),0), market: rows.reduce((s,r)=>s+(+r.market||0),0),
+    labor: rows.reduce((s,r)=>s+(+r.labor||0),0), utility: rows.reduce((s,r)=>s+(+r.utility||0),0), other: rows.reduce((s,r)=>s+(+r.other||0),0)
+  };
+}
+function watchUpdates(render){
+  window.addEventListener('storage', e=>{ if(e.key===STORE_KEY || e.key===STORE_KEY+'_updated') render(); });
+  if(window.BroadcastChannel){ const ch = new BroadcastChannel("siam_budget_channel"); ch.onmessage = render; }
+}
+
+const q = document.getElementById('q'); const filter = document.getElementById('filter');
+q.addEventListener('input', render); filter.addEventListener('change', render);
+function renderCats(rows){
+  const c=categoryTotals(rows); const max=Math.max(1,...Object.values(c));
+  const names={mall:'ซื้อจากห้าง',market:'ซื้อจากตลาด/ร้านค้าส่ง',labor:'ค่าแรง',utility:'สาธารณูปโภค',other:'อื่นๆ'};
+  cats.innerHTML=Object.entries(c).map(([k,v])=>`<div style="margin-top:13px"><div style="display:flex;justify-content:space-between;gap:10px"><b>${names[k]}</b><span>${money(v)} บาท</span></div><div class="barbox"><div class="bar" style="width:${(v/max)*100}%"></div></div></div>`).join('');
+}
+function render(){
+  const rows = sortedRows(loadRecords()); const t=totals(rows);
+  balance.textContent = money(t.balance)+' บาท'; balance.className = 'amount '+(t.balance>=0?'ok':'bad');
+  income.textContent = money(t.income); out.textContent = money(t.out); count.textContent = money(t.count);
+  const upd = localStorage.getItem(STORE_KEY+'_updated'); updated.textContent = upd ? 'อัปเดตล่าสุด '+new Date(upd).toLocaleString('th-TH') : '';
+  renderCats(rows);
+  let running=0; const withRun = rows.map(r=>{running += (+r.income||0)-expense(r); return {...r,running};});
+  const word=q.value.trim().toLowerCase(); const mode=filter.value;
+  const shown=withRun.filter(r=>{
+    const passText = !word || (r.item||'').toLowerCase().includes(word) || (r.date||'').includes(word);
+    const passMode = mode==='all' || (mode==='income' && (+r.income||0)>0) || (mode==='expense' && expense(r)>0);
+    return passText && passMode;
+  });
+  tbody.innerHTML = shown.map(r=>`<tr onclick="toggleDetail('${r.id}')"><td>${dateText(r.date)}</td><td><b>${r.item||'-'}</b><div class="muted">${expense(r)>0?'<span class="pill out">รายจ่าย</span>':'<span class="pill in">รายรับ</span>'}</div></td><td class="num">${money(r.income)}</td><td class="num">${money(expense(r))}</td><td class="num"><b>${money(r.running)}</b></td><td><button class="btn small">รายละเอียด</button></td></tr><tr id="d-${r.id}" class="details"><td colspan="6"><div class="detailgrid"><div class="cat"><span>ซื้อจากห้าง</span><b>${money(r.mall)} บาท</b></div><div class="cat"><span>ซื้อจากตลาด/ร้านค้าส่ง</span><b>${money(r.market)} บาท</b></div><div class="cat"><span>ค่าแรง</span><b>${money(r.labor)} บาท</b></div><div class="cat"><span>สาธารณูปโภค</span><b>${money(r.utility)} บาท</b></div><div class="cat"><span>อื่นๆ</span><b>${money(r.other)} บาท</b></div></div></td></tr>`).join('') || '<tr><td colspan="6" class="muted">ไม่พบข้อมูล</td></tr>';
+}
+function toggleDetail(id){ const el=document.getElementById('d-'+id); if(el) el.classList.toggle('open'); }
+watchUpdates(render); render();
+</script></body></html>
